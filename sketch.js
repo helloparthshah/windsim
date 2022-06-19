@@ -13,7 +13,10 @@ let flowf;
 let nparticles = 100;
 
 function setup() {
-    createCanvas(800, 800);
+    // create fullscreen canvas
+    fullscreen();
+    createCanvas(displayWidth, displayHeight);
+
     pixelDensity(1);
     cols = floor(width / scl);
     rows = floor(height / scl);
@@ -22,9 +25,10 @@ function setup() {
 
     sv = createP('');
     s = createSlider(0.001, 5, 0.1, 0.001);
-
+    // hide s
+    s.hide();
     p = createSlider(0.0001, 0.001, 0.0001, 0.0001);
-
+    p.hide();
 
 
     flowf = new Array(cols * rows);
@@ -72,7 +76,7 @@ function draw() {
         particles[i].show();
     }
 
-    fr.html(' &emsp; &emsp; &emsp; &emsp; Frame Rate: ' + floor(frameRate()) +
+    /* fr.html(' &emsp; &emsp; &emsp; &emsp; Frame Rate: ' + floor(frameRate()) +
         '<br/><br/> &emsp;Wind Force: ' + s.value() +
-        " &emsp;Variability: " + p.value());
+        " &emsp;Variability: " + p.value()); */
 }
